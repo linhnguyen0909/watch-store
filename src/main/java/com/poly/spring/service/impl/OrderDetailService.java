@@ -39,4 +39,10 @@ public class OrderDetailService implements IOrderDetail {
 		orderDetailRepository.insertByDto(dto);
 	}
 
+	@Override
+	public List<OrderDetailEntity> findAllByOrder(int id) {
+		// TODO Auto-generated method stub
+		return orderDetailRepository.findAllByOrder(id);
+	}
+
 }

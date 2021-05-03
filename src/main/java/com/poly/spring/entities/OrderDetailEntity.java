@@ -30,13 +30,19 @@ public class OrderDetailEntity extends BaseEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDetailEntity(Float itemPrice, Float shippingPrice, Float taxPrice, Float totalPrice) {
+	public OrderDetailEntity(Float itemPrice, Float shippingPrice, Float taxPrice, Float totalPrice, Integer quantity,
+			ProductEntity product, OrderEntity order) {
 		super();
 		this.itemPrice = itemPrice;
 		this.shippingPrice = shippingPrice;
 		this.taxPrice = taxPrice;
 		this.totalPrice = totalPrice;
+		this.quantity = quantity;
+		this.product = product;
+		this.order = order;
 	}
+
+
 
 	public Float getItemPrice() {
 		return itemPrice;
@@ -78,4 +84,19 @@ public class OrderDetailEntity extends BaseEntity {
 		this.quantity = quantity;
 	}
 
+	public ProductEntity getProduct() {
+		return product;
+	}
+
+	public void setProduct(ProductEntity product) {
+		this.product = product;
+	}
+
+	public OrderEntity getOrder() {
+		return order;
+	}
+
+	public void setOrder(OrderEntity order) {
+		this.order = order;
+	}
 }

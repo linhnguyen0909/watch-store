@@ -19,6 +19,9 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, 
 	@Query(value = "select * from orderdetail ORDER BY ?#{#pageable}", nativeQuery = true)
 	List<OrderDetailEntity> findAllList(Pageable pageable);//1
 	
+	@Query(value = "select * from orderdetail where orderid = ?1", nativeQuery = true)
+	List<OrderDetailEntity> findAllByOrder(int id);//1
+	
 	@Query(value = "select * from orderdetail where id = ?1", nativeQuery = true)
 	OrderDetailEntity findById(int id);//1
 	

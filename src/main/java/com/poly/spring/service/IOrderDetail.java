@@ -15,4 +15,6 @@ public interface IOrderDetail {
 	void delete(int id);
 	
 	void insertByDto(OrderDetailDto dto);
+	
+	List<OrderDetailEntity> findAllByOrder(int id);//1
 }

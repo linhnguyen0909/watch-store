@@ -24,6 +24,7 @@ import com.poly.spring.entities.ProductEntity;
 import com.poly.spring.service.ICartService;
 import com.poly.spring.service.ICategory;
 import com.poly.spring.service.IOrder;
+import com.poly.spring.service.IOrderDetail;
 import com.poly.spring.service.IProduct;
 
 @Controller(value = "cartControllerOfAdmin")
@@ -32,6 +33,9 @@ public class CartController {
 
 	@Autowired
 	private IOrder orderService;
+	
+	@Autowired
+	private IOrderDetail orderDetailService;
 
 	@RequestMapping(value = "",method = RequestMethod.GET)	
 	public String index(ModelMap model, @RequestParam("page") int page, @RequestParam("limit") int limit) {
@@ -44,8 +48,9 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "/chi-tiet",method = RequestMethod.GET)	
-	public String chitiet(ModelMap model, @RequestParam(value = "id", required = false) String id) {
-//		model.put("orderDetails", orderService.findAllList(pageable));		
+	public String chitiet(ModelMap model, @RequestParam(value = "id", required = false) String id) {		
+		int idInt = Integer.parseInt(id);
+		model.put("orderDetails", orderDetailService.findAllByOrder(idInt));		
 		return "admin/orderDetail";
 	}
 }
